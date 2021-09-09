@@ -6,7 +6,7 @@ const theme = {
     lightInput: "hsl(0, 0%, 52%)",
     lightBackground: "hsl(0, 0%, 98%)",
     white: "hsl(0, 0%, 100%)",
-    dropShadow: "rgba(0, 0, 0, 0.24)",
+    dropShadow: "rgba(0, 0, 0, 0.20)",
   },
 
   fonts: {
