@@ -5,6 +5,16 @@ import searchIcon from "../../images/search-icon.svg";
 const ControlContainer = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 2.5rem;
+
+  @media (min-width: 481px) {
+    padding: 0 clamp(1rem, 7%, 4rem);
+  }
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 const FilterInput = styled.input`
@@ -13,13 +23,18 @@ const FilterInput = styled.input`
   border: 0;
   border-radius: 5px;
   box-shadow: 1px 0 4px 0 ${(props) => props.theme.colors.dropShadow};
+
+  flex-grow: 1;
+  max-width: 30rem;
 `;
 
 const RegionContainer = styled.div`
-  margin-top: 2.5rem;
   height: 3.125rem;
   position: relative;
   font-family: ${(props) => props.theme.fonts.main};
+
+  flex-grow: 1;
+  max-width: 12.625rem;
 `;
 
 const RegionLabel = styled.label`
