@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
-// import axios from "axios";
 import Card from "../Card/Card";
-
-import usa from "../../images/usa.svg";
+import { CountryDataContext } from "../../contexts/CountryDataContext";
 
 // Component Styling
 const CardContainer = styled.div`
@@ -20,47 +18,27 @@ const CardContainer = styled.div`
   }
 `;
 
-// const restCountryURL = "https://restcountries.eu/";
-
 const CountryDirectory = () => {
-  // TEST DATA
-  // const UsCountryURL = "https://restcountries.eu/rest/v2/name/united%20states%20of%20america";
+  // Retrieve country data from CountryDataContext
+  const { countryData } = useContext(CountryDataContext);
 
-  const initialValue = {
-    name: "United States of America",
-    flag: usa,
-    population: 323947000,
-    region: "Americas",
-    capital: "Washington, D.C.",
-  };
+  // Iterate over the collection of objects in countryData
+  const CountryCards = Object.entries(countryData).map((data, index) => {
+    const { name, flag, population, region, capital } = data[1];
 
-  // NOTE: flag should be the URL, for dev purposes I've saved local copy of SVG image rather than spam API
-  // flag: "https://restcountries.eu/data/usa.svg",
-
-  const [countryData, setCountryData] = useState(initialValue);
-  const { name, flag, population, region, capital } = countryData;
-
-  // Format population size with comma separaters
-  const formattedPopulation = population.toLocaleString("en", {
-    useGrouping: true,
-  });
-
-  // Sample data for layout
-  const Cards = new Array(8);
-  for (let i = 0; i < 8; i++) {
-    Cards[i] = (
+    return (
       <Card
-        key={i}
+        key={index}
         name={name}
         flag={flag}
-        population={formattedPopulation}
+        population={population.toLocaleString("en", { useGrouping: true })}
         region={region}
         capital={capital}
       />
     );
-  }
+  });
 
-  return <CardContainer>{Cards}</CardContainer>;
+  return <CardContainer>{CountryCards}</CardContainer>;
 };
 
 export default CountryDirectory;

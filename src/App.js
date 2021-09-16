@@ -4,6 +4,9 @@ import Header from "./components/Header/Header";
 import MainControls from "./components/MainControls/MainControls";
 import CountryDirectory from "./components/CountryDirectory/CountryDirectory";
 
+import { CountryDataProvider } from "./contexts/CountryDataContext";
+import { CountryFilterProvider } from "./contexts/CountryDataContext";
+
 // Components Styling
 const AppContainer = styled.div`
   height: 100vh;
@@ -18,14 +21,16 @@ const Main = styled.main`
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <AppContainer>
-        <Header />
+      <CountryDataProvider>
+        <AppContainer>
+          <Header />
 
-        <Main>
-          <MainControls />
-          <CountryDirectory />
-        </Main>
-      </AppContainer>
+          <Main>
+            <MainControls />
+            <CountryDirectory />
+          </Main>
+        </AppContainer>
+      </CountryDataProvider>
     </ThemeProvider>
   );
 };
