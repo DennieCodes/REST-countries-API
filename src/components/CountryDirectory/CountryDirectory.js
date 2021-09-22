@@ -24,13 +24,13 @@ const CountryDirectory = () => {
 
   // Iterate over the collection of objects in countryData
   const CountryCards = Object.entries(countryData).map((data, index) => {
-    const { name, flag, population, region, capital } = data[1];
+    const { name, flags, population, region, capital } = data[1];
 
     return (
       <Card
         key={index}
         name={name}
-        flag={flag}
+        flag={flags[0]}
         population={population.toLocaleString("en", { useGrouping: true })}
         region={region}
         capital={capital}

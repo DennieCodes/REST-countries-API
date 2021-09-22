@@ -1,7 +1,17 @@
 import styled from "styled-components";
-import searchIcon from "../../images/search-icon.svg";
+import SearchInputControl from "./SearchInputControl";
 
 // Components Styling
+
+const RegionContainer = styled.div`
+  height: 3.125rem;
+  position: relative;
+  font-family: ${(props) => props.theme.fonts.main};
+
+  flex-grow: 1;
+  max-width: 12.625rem;
+`;
+
 const ControlContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,26 +25,6 @@ const ControlContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
   }
-`;
-
-const FilterInput = styled.input`
-  height: 3rem;
-  padding-left: 2rem;
-  border: 0;
-  border-radius: 5px;
-  box-shadow: 1px 0 4px 0 ${(props) => props.theme.colors.dropShadow};
-
-  flex-grow: 1;
-  max-width: 30rem;
-`;
-
-const RegionContainer = styled.div`
-  height: 3.125rem;
-  position: relative;
-  font-family: ${(props) => props.theme.fonts.main};
-
-  flex-grow: 1;
-  max-width: 12.625rem;
 `;
 
 const RegionLabel = styled.label`
@@ -56,12 +46,7 @@ const RegionSelector = styled.select`
 const MainControls = () => {
   return (
     <ControlContainer>
-      <FilterInput
-        type="text"
-        name="filter"
-        id="filter"
-        placeholder="Search for a country"
-      />
+      <SearchInputControl />
 
       <RegionContainer>
         <RegionLabel>Filter by Region</RegionLabel>

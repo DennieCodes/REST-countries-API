@@ -11,10 +11,9 @@ export function CountryDataProvider(props) {
   useEffect(() => {
     async function fetchData() {
       const field =
-        "name;population;region;subregion;capital;topLevelDomain;alpha3Code;currencies;languages;borders;flag";
+        "name,population,region,subregion,capital,topLevelDomain,alpha3Code,currencies,languages,borders,flags";
 
-      const countriesURL =
-        "https://restcountries.eu/rest/v2/all?fields=" + field;
+      const countriesURL = "https://restcountries.com/v2/all?fields=" + field;
 
       try {
         await axios
