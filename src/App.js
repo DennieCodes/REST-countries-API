@@ -5,7 +5,7 @@ import MainControls from "./components/MainControls/MainControls";
 import CountryDirectory from "./components/CountryDirectory/CountryDirectory";
 
 import { CountryDataProvider } from "./contexts/CountryDataContext";
-import { CountryFilterProvider } from "./contexts/CountryDataContext";
+import { CountryFilterProvider } from "./contexts/CountryFilterContext";
 
 // Components Styling
 const AppContainer = styled.div`
@@ -22,14 +22,16 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CountryDataProvider>
-        <AppContainer>
-          <Header />
+        <CountryFilterProvider>
+          <AppContainer>
+            <Header />
 
-          <Main>
-            <MainControls />
-            <CountryDirectory />
-          </Main>
-        </AppContainer>
+            <Main>
+              <MainControls />
+              <CountryDirectory />
+            </Main>
+          </AppContainer>
+        </CountryFilterProvider>
       </CountryDataProvider>
     </ThemeProvider>
   );

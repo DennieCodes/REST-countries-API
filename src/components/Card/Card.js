@@ -5,12 +5,14 @@ const CountryCard = styled.div`
   box-shadow: 0 0 7px 0 ${(props) => props.theme.colors.dropShadow};
   border-radius: 5px;
   padding-bottom: 3rem;
+  max-width: 16.5rem;
 `;
 
 const Flag = styled.img`
   border-radius: 5px 5px 0 0;
   height: 10rem;
   width: 16.5rem;
+  object-fit: cover;
 `;
 
 const CountryInfo = styled.div`

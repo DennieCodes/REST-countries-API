@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const CountryFilterContext = createContext();
 
-export function CountryDataProvider(props) {
+export function CountryFilterProvider(props) {
   const [countryFilter, setCountryFilter] = useState("");
 
   return (

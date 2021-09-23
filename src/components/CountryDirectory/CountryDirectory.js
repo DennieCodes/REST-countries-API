@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import Card from "../Card/Card";
+
 import { CountryDataContext } from "../../contexts/CountryDataContext";
+import { CountryFilterContext } from "../../contexts/CountryFilterContext";
 
 // Component Styling
 const CardContainer = styled.div`
@@ -22,21 +24,38 @@ const CountryDirectory = () => {
   // Retrieve country data from CountryDataContext
   const { countryData } = useContext(CountryDataContext);
 
-  // Iterate over the collection of objects in countryData
-  const CountryCards = Object.entries(countryData).map((data, index) => {
-    const { name, flags, population, region, capital } = data[1];
+  // Retrieve search input value for filtering API data
+  const { countryFilter } = useContext(CountryFilterContext);
 
-    return (
-      <Card
-        key={index}
-        name={name}
-        flag={flags[0]}
-        population={population.toLocaleString("en", { useGrouping: true })}
-        region={region}
-        capital={capital}
-      />
-    );
-  });
+  // Iterate over the collection of objects in countryData
+  // Filter if there is data in the search input field
+
+  const CountryCards = Object.entries(countryData)
+    .filter((data) => {
+      if (countryFilter.length > 0) {
+        const countryName = data[1].name.toLowerCase();
+
+        if (countryName.includes(countryFilter.toLowerCase())) {
+          return data;
+        }
+      } else {
+        return data;
+      }
+    })
+    .map((data, index) => {
+      const { name, flags, population, region, capital } = data[1];
+
+      return (
+        <Card
+          key={index}
+          name={name}
+          flag={flags[0]}
+          population={population.toLocaleString("en", { useGrouping: true })}
+          region={region}
+          capital={capital}
+        />
+      );
+    });
 
   return <CardContainer>{CountryCards}</CardContainer>;
 };
