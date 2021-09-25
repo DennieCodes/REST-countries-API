@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 // Components Styling
@@ -18,6 +19,7 @@ const Flag = styled.img`
 const CountryInfo = styled.div`
   margin-top: 1.875rem;
   padding: 0 1.65rem;
+  color: black;
 `;
 
 const CountryName = styled.h2`
@@ -37,21 +39,25 @@ const Card = (props) => {
   const { name, flag, population, region, capital } = props;
   const flagInfo = `Flag of ${name}`;
 
+  const routerLinkUrl = `/country/${name}`;
+
   return (
     <CountryCard>
-      <Flag src={flag} alt={flagInfo} />
-      <CountryInfo>
-        <CountryName>{name}</CountryName>
-        <CountryStat>
-          <strong>Population:</strong> {population}
-        </CountryStat>
-        <CountryStat>
-          <strong>Region:</strong> {region}
-        </CountryStat>
-        <CountryStat>
-          <strong>Capital:</strong> {capital}
-        </CountryStat>
-      </CountryInfo>
+      <Link to={routerLinkUrl}>
+        <Flag src={flag} alt={flagInfo} />
+        <CountryInfo>
+          <CountryName>{name}</CountryName>
+          <CountryStat>
+            <strong>Population:</strong> {population}
+          </CountryStat>
+          <CountryStat>
+            <strong>Region:</strong> {region}
+          </CountryStat>
+          <CountryStat>
+            <strong>Capital:</strong> {capital}
+          </CountryStat>
+        </CountryInfo>
+      </Link>
     </CountryCard>
   );
 };

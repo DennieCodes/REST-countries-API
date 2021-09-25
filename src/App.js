@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import styled, { ThemeProvider } from "styled-components";
 import theme from "./themes/theme";
 import Header from "./components/Header/Header";
@@ -20,20 +22,27 @@ const Main = styled.main`
 // App Component
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <CountryDataProvider>
-        <CountryFilterProvider>
-          <AppContainer>
-            <Header />
+    <Router>
+      <ThemeProvider theme={theme}>
+        <CountryDataProvider>
+          <CountryFilterProvider>
+            <AppContainer>
+              <Header />
 
-            <Main>
-              <MainControls />
-              <CountryDirectory />
-            </Main>
-          </AppContainer>
-        </CountryFilterProvider>
-      </CountryDataProvider>
-    </ThemeProvider>
+              <Main>
+                <MainControls />
+
+                <Switch>
+                  <Route path="/">
+                    <CountryDirectory />
+                  </Route>
+                </Switch>
+              </Main>
+            </AppContainer>
+          </CountryFilterProvider>
+        </CountryDataProvider>
+      </ThemeProvider>
+    </Router>
   );
 };
 
