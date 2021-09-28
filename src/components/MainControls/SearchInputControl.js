@@ -21,7 +21,7 @@ const SearchIcon = styled.img`
 
 const SearchInput = styled.input`
   height: 3rem;
-  width: 100%;
+  width: calc(100% - 4.68rem);
   padding-left: 4.68rem;
   border: 0;
   border-radius: 5px;

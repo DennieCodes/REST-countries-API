@@ -7,8 +7,7 @@ import { CountryFilterContext } from "../../contexts/CountryFilterContext";
 
 // Component Styling
 const CardContainer = styled.div`
-  margin-top: 2.5rem;
-  padding: 0 2.5rem;
+  margin: 4rem 3.5rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -49,7 +48,7 @@ const CountryDirectory = () => {
         <Card
           key={index}
           name={name}
-          flag={flags[0]}
+          flag={flags.svg}
           population={population.toLocaleString("en", { useGrouping: true })}
           region={region}
           capital={capital}

@@ -13,6 +13,7 @@ const RegionContainer = styled.div`
 `;
 
 const ControlContainer = styled.div`
+  margin: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
