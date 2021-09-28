@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 
+import CountryDetailBorderSection from "./CountryDetailBorderSection";
 import { CountryDataContext } from "../../contexts/CountryDataContext";
 
 const CountryDetails = styled.div`
@@ -19,12 +20,12 @@ const CountryDetailsInfo = styled.div`
 `;
 
 const CountryDetailsSubInfo = styled.div`
-  margin-top: 3.375rem;
+  margin-top: 1.54rem;
 `;
 
 const CountryName = styled.h2`
   margin-bottom: 2rem;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 800;
 `;
 
@@ -33,6 +34,7 @@ const CountryStat = styled.p`
   line-height: 2.2rem;
 `;
 
+// CountryDetailCard Component
 const CountryDetailCard = (props) => {
   const { countryName } = props;
   // Retrieve country data from CountryDataContext
@@ -56,15 +58,15 @@ const CountryDetailCard = (props) => {
     borders,
   } = countryDetails[0];
 
-  // currenies and languages are both an array of objects
-  // The key in currencies for display is: name
-  // The key in languages for display is: name
+  // Parse name from currencies and languages which are array of objects and then join with comma separator
+  const countryCurrencies = currencies.map((data) => data.name).join(", ");
+  const countryLanguages = languages.map((data) => data.name).join(", ");
 
-  // borders is an array
+  const flagImageAlternateText = `The flag of ${name}`;
 
   return (
     <CountryDetails>
-      <Flag src={flags.svg} alt="" />
+      <Flag src={flags.svg} alt={flagImageAlternateText} />
 
       <CountryDetailsInfo>
         <CountryName>{name}</CountryName>
@@ -75,27 +77,27 @@ const CountryDetailCard = (props) => {
         <CountryStat>
           <strong>Region:</strong> {region}
         </CountryStat>
-
         <CountryStat>
           <strong>Subregion:</strong> {subregion}
         </CountryStat>
         <CountryStat>
           <strong>Capital:</strong> {capital}
         </CountryStat>
-
-        {/* <CountryDetailsSubInfo>
+        <CountryDetailsSubInfo>
           <CountryStat>
             <strong>Top level Domain:</strong> {topLevelDomain[0]}
           </CountryStat>
 
           <CountryStat>
-            <strong>Currencies:</strong> {currencies}
+            <strong>Currencies:</strong> {countryCurrencies}
           </CountryStat>
 
           <CountryStat>
-            <strong>Languages:</strong> {languages}
+            <strong>Languages:</strong> {countryLanguages}
           </CountryStat>
-        </CountryDetailsSubInfo> */}
+        </CountryDetailsSubInfo>
+
+        <CountryDetailBorderSection borders={borders} />
       </CountryDetailsInfo>
     </CountryDetails>
   );

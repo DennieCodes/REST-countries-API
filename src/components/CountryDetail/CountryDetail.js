@@ -32,7 +32,7 @@ const CountryDetail = () => {
   // useHistory hook and Back button click handler function
   const history = useHistory();
   const handleBackButtonClick = () => {
-    history.push("/");
+    history.goBack(1);
   };
 
   return (
