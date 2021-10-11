@@ -5,7 +5,12 @@ import backArrow from "../../images/back-arrow.svg";
 
 import CountryDetailCard from "./CountryDetailCard";
 
-const DetailContainer = styled.div``;
+const DetailContainer = styled.div`
+
+@media (min-width: 992px) {
+  padding 0 clamp(1rem, 6%,5rem);
+}
+`;
 
 const BackArrowIcon = styled.img`
   height: 0.625rem;
