@@ -1,6 +1,7 @@
 import { useParams, useHistory } from "react-router-dom";
 import styled from "styled-components";
 
+import ScrollToTop from "../../utils/ScrollToTop";
 import backArrow from "../../images/back-arrow.svg";
 
 import CountryDetailCard from "./CountryDetailCard";
@@ -42,6 +43,7 @@ const CountryDetail = () => {
 
   return (
     <DetailContainer>
+      <ScrollToTop />
       <HomeReturnButton type="button" onClick={handleBackButtonClick}>
         <BackArrowIcon src={backArrow} alt="" />
         Back

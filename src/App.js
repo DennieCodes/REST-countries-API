@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import styled, { ThemeProvider } from "styled-components";
 import theme from "./themes/theme";
+
 import Header from "./components/Header/Header";
 import MainControls from "./components/MainControls/MainControls";
 import CountryDirectory from "./components/CountryDirectory/CountryDirectory";
@@ -34,6 +35,7 @@ const App = () => {
                     <CountryDirectory />
                   </Route>
 
+                  {/* <ScrollToTop /> */}
                   <Route path="/country/:name" children={<CountryDetail />} />
                 </Switch>
               </Main>
