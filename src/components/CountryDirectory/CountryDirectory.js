@@ -25,16 +25,27 @@ const CountryDirectory = () => {
 
   // Retrieve search input value for filtering API data
   const { countryFilter } = useContext(CountryFilterContext);
-
+  const { searchTerm, region } = countryFilter;
   // Iterate over the collection of objects in countryData
-  // Filter if there is data in the search input field
+  // Filter if there are any filter flags present
 
   const CountryCards = Object.entries(countryData)
     .filter((data) => {
-      if (countryFilter.length > 0) {
+      if (region.length > 0) {
+        const regionName = data[1].region.toLowerCase();
+
+        if (regionName.includes(region.toLowerCase())) {
+          return data;
+        }
+      } else {
+        return data;
+      }
+    })
+    .filter((data) => {
+      if (searchTerm.length > 0) {
         const countryName = data[1].name.toLowerCase();
 
-        if (countryName.includes(countryFilter.toLowerCase())) {
+        if (countryName.includes(searchTerm.toLowerCase())) {
           return data;
         }
       } else {

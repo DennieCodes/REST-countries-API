@@ -47,14 +47,16 @@ const SelectInput = () => {
   const toggleDropDownState = () => setIsDropDownOpen(!isDropDownOpen);
 
   // Handle selected Option item selection
-  const [selectOption, setSelectOption] = useState(null);
+  const [selectOption, setSelectOption] = useState("Filter by Region");
 
   const onSelectItemClick = (value) => {
     setSelectOption(value);
     setIsDropDownOpen(false);
 
-    // The idea is to update filter state with the selected value from the select drop down list
-    // Will have to update how the filter context is used for displaying countries on the directory
+    setCountryFilter({
+      region: value,
+      searchTerm: countryFilter.searchTerm,
+    });
   };
 
   const selectItemsArray = ["Africa", "America", "Asia", "Europe", "Oceania"];
@@ -68,7 +70,6 @@ const SelectInput = () => {
       >
         {item}
       </SelectDropDownItem>
-      // <SelectDropDownItem>{item}</SelectDropDownItem>
     );
   });
 
@@ -76,7 +77,7 @@ const SelectInput = () => {
     <>
       <SelectInputContainer>
         <SelectInputHeader onClick={toggleDropDownState}>
-          Filter by Region
+          {selectOption}
         </SelectInputHeader>
 
         {isDropDownOpen && (

@@ -32,7 +32,10 @@ const SearchInputControl = () => {
   const { countryFilter, setCountryFilter } = useContext(CountryFilterContext);
 
   const handleInputControlChange = (event) => {
-    setCountryFilter(event.target.value);
+    setCountryFilter({
+      region: countryFilter.region,
+      searchTerm: event.target.value,
+    });
   };
 
   return (
@@ -43,7 +46,7 @@ const SearchInputControl = () => {
         name="search"
         id="search"
         placeholder="Search for a country"
-        value={countryFilter}
+        value={countryFilter.searchTerm}
         onChange={handleInputControlChange}
       />
     </SearchContainer>
