@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { CountryFilterContext } from "../../contexts/CountryFilterContext";
 
 const SelectInputContainer = styled.div`
+  background-color: ${({ theme }) => theme.elementsBG};
+  border-radius: 5px;
   position: relative;
-  font-family: ${(props) => props.theme.fonts.main};
   cursor: pointer;
 
   flex-grow: 1;
@@ -12,19 +13,19 @@ const SelectInputContainer = styled.div`
 `;
 
 const SelectInputHeader = styled.div`
-  margin-bottom: 0.6rem;
   padding: 1rem 1.5rem;
-  box-shadow: 1px 0 4px 0 ${(props) => props.theme.colors.dropShadow};
+  box-shadow: 1px 0 4px 0 ${({ theme }) => theme.dropShadowColor};
 `;
 
 const SelectDropDownContainer = styled.div`
   position: absolute;
   width: 100%;
-  background: #fff;
+  margin-top: 0.8rem;
 `;
 
 const SelectDropDownList = styled.ul`
-  box-shadow: 1px 0 4px 0 ${(props) => props.theme.colors.dropShadow};
+  box-shadow: 1px 0 4px 0 ${({ theme }) => theme.dropShadowColor};
+  background-color: ${({ theme }) => theme.elementsBG};
   box-sizing: border-box;
   padding-left: 1rem;
 

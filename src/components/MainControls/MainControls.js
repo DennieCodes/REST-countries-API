@@ -20,10 +20,12 @@ const ControlContainer = styled.div`
   }
 `;
 
-const MainControls = () => {
+const MainControls = (props) => {
+  const activeTheme = props.activeTheme;
+
   return (
     <ControlContainer>
-      <SearchInputControl />
+      <SearchInputControl activeTheme={activeTheme} />
       <SelectInput />
     </ControlContainer>
   );

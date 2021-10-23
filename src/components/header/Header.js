@@ -1,13 +1,14 @@
 import styled from "styled-components";
-import crescent from "../../images/crescent-moon-svgrepo-com.svg";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 // COMPONENTS STYLING
 const HeaderContainer = styled.header`
   display: flex;
   padding: 2rem 1em;
   justify-content: space-between;
-  background-color: ${(props) => props.theme.colors.white};
-  box-shadow: 0 0 7px 0 ${(props) => props.theme.colors.dropShadow};
+  box-shadow: 0 0 7px 0 ${({ theme }) => theme.dropShadowColor};
+
+  background-color: ${({ theme }) => theme.elementsBG};
 
   @media (min-width: 481px) {
     padding: 2rem clamp(1rem, 6%, 5rem);
@@ -15,7 +16,6 @@ const HeaderContainer = styled.header`
 `;
 
 const Title = styled.h1`
-  font-family: ${(props) => props.theme.fonts.main};
   font-size: 1rem;
   margin: 0;
 
@@ -24,29 +24,19 @@ const Title = styled.h1`
   }
 `;
 
-const ThemeToggleButton = styled.button`
-  font-family: ${(props) => props.theme.fonts.main};
-  border: none;
-  background-color: #fff;
-  cursor: pointer;
-`;
-
-const ThemeToggleIcon = styled.img`
-  height: 1rem;
-  width: 1rem;
-  margin-right: 0.5em;
-  margin-bottom: -0.15rem;
-`;
-
 // HEADER Component
-const Header = () => {
+const Header = (props) => {
+  const themeToggler = props.themeToggler;
+  const activeTheme = props.activeTheme;
+
   return (
     <HeaderContainer>
       <Title>Where in the world?</Title>
-      <ThemeToggleButton>
-        <ThemeToggleIcon src={crescent} alt="Crescent Moon" />
-        Dark Mode
-      </ThemeToggleButton>
+
+      <ThemeToggleButton
+        themeToggler={themeToggler}
+        activeTheme={activeTheme}
+      />
     </HeaderContainer>
   );
 };

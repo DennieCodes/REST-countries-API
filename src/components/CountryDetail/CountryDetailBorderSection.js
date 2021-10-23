@@ -24,21 +24,19 @@ const CountryBorderLinks = styled.div`
 `;
 
 const CountryBorderLabel = styled.h3`
-  font-family: ${(props) => props.theme.fonts.main};
   font-size: 1;
   font-weight: 600;
   margin-bottom: 1.5rem;
 `;
 
 const CountryLink = styled(Link)`
-  font-family: ${(props) => props.theme.fonts.main};
   font-size: 0.875rem;
   line-height: 0.875rem;
 
   cursor: pointer;
-  box-shadow: 0 0 6px 2px ${(props) => props.theme.colors.dropShadow};
-  background-color: white;
-  color: black;
+  box-shadow: 0 0 6px 2px ${({ theme }) => theme.dropShadowColor};
+  background-color: ${({ theme }) => theme.elementsBG};
+  color: ${({ theme }) => theme.textColor};
 
   padding: 0.625rem 2.5%;
   text-align: center;
@@ -75,7 +73,9 @@ const CountryDetailBorderSection = (props) => {
   return (
     <CountryBorders>
       <CountryBorderLabel>Border Countries:</CountryBorderLabel>
-      <CountryBorderLinks>{borderCountryLinks}</CountryBorderLinks>
+      <CountryBorderLinks>
+        {borderCountryLinks.length > 0 ? borderCountryLinks : "None"}
+      </CountryBorderLinks>
     </CountryBorders>
   );
 };

@@ -35,9 +35,11 @@ const CountryDirectory = () => {
         const regionName = data[1].region.toLowerCase();
 
         if (regionName.includes(region.toLowerCase())) {
+          // This will return a filtered data set with countries with corresponding region
           return data;
         }
       } else {
+        // This will return an unfiltered data set
         return data;
       }
     })
@@ -46,9 +48,11 @@ const CountryDirectory = () => {
         const countryName = data[1].name.toLowerCase();
 
         if (countryName.includes(searchTerm.toLowerCase())) {
+          // This will return a filtered data set with countries that have the search term in it's name
           return data;
         }
       } else {
+        // This will return an unfiltered data set
         return data;
       }
     })

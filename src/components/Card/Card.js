@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 // Components Styling
 const CountryCard = styled.div`
-  box-shadow: 0 0 7px 0 ${(props) => props.theme.colors.dropShadow};
+  box-shadow: 0 0 7px 0 ${({ theme }) => theme.dropShadowColor};
+  background-color: ${({ theme }) => theme.elementsBG};
   border-radius: 5px;
   padding-bottom: 3rem;
   max-width: 16.5rem;
@@ -19,18 +20,17 @@ const Flag = styled.img`
 const CountryInfo = styled.div`
   margin-top: 1.875rem;
   padding: 0 1.65rem;
-  color: black;
+
+  color: ${({ theme }) => theme.textColor};
 `;
 
 const CountryName = styled.h2`
-  font-family: ${(props) => props.theme.fonts.main};
   font-size: 1rem;
 
   margin-bottom: 1.625rem;
 `;
 
 const CountryStat = styled.p`
-  font-family: ${(props) => props.theme.fonts.main};
   font-size: 0.875rem;
   line-height: 1.5rem;
 `;

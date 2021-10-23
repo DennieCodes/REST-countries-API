@@ -2,7 +2,8 @@ import { useParams, useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import ScrollToTop from "../../utils/ScrollToTop";
-import backArrow from "../../images/back-arrow.svg";
+import backArrow from "../../images/back-arrow.png";
+import backArrowDark from "../../images/back-arrow-dark.png";
 
 import CountryDetailCard from "./CountryDetailCard";
 
@@ -24,14 +25,18 @@ const HomeReturnButton = styled.button`
   padding: 0.625rem 0;
   padding-right: 1.5rem;
   margin: 2.5rem 0 4rem 1.5rem;
-  font-family: ${(props) => props.theme.fonts.main};
   cursor: pointer;
   border: none;
-  box-shadow: 0 0 6px 2px ${(props) => props.theme.colors.dropShadow};
-  background-color: white;
+  box-shadow: 0 0 6px 2px ${({ theme }) => theme.dropShadowColor};
+  color: ${({ theme }) => theme.textColor};
+  background-color: ${({ theme }) => theme.elementsBG};
 `;
 
-const CountryDetail = () => {
+const CountryDetail = (props) => {
+  const activeTheme = props.activeTheme;
+
+  const activeBackIcon = activeTheme === "light" ? backArrow : backArrowDark;
+
   // Extract country Name parameter
   let { name } = useParams();
 
@@ -45,7 +50,7 @@ const CountryDetail = () => {
     <DetailContainer>
       <ScrollToTop />
       <HomeReturnButton type="button" onClick={handleBackButtonClick}>
-        <BackArrowIcon src={backArrow} alt="" />
+        <BackArrowIcon src={activeBackIcon} alt="" />
         Back
       </HomeReturnButton>
 

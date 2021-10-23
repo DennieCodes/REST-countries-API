@@ -1,7 +1,10 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import useToggleTheme from "./hooks/useToggleTheme";
+
+import { GlobalStyles } from "./components/GlobalStyles/GlobalStyles";
 import styled, { ThemeProvider } from "styled-components";
-import theme from "./themes/theme";
+import { lightTheme, darkTheme } from "./themes/theme";
 
 import Header from "./components/Header/Header";
 import MainControls from "./components/MainControls/MainControls";
@@ -12,31 +15,34 @@ import { CountryDataProvider } from "./contexts/CountryDataContext";
 import { CountryFilterProvider } from "./contexts/CountryFilterContext";
 
 // Components Styling
-const AppContainer = styled.div`
-  background-color: ${(props) => props.theme.colors.lightBackground};
-`;
-
+const AppContainer = styled.div``;
 const Main = styled.main``;
 
 // App Component
 const App = () => {
+  const [activeTheme, themeToggler] = useToggleTheme("light");
+  const selectedTheme = activeTheme === "light" ? lightTheme : darkTheme;
+
   return (
     <Router>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={selectedTheme}>
+        <GlobalStyles />
         <CountryDataProvider>
           <CountryFilterProvider>
             <AppContainer>
-              <Header />
+              <Header themeToggler={themeToggler} activeTheme={activeTheme} />
 
               <Main>
                 <Switch>
                   <Route exact path="/">
-                    <MainControls />
+                    <MainControls activeTheme={activeTheme} />
                     <CountryDirectory />
                   </Route>
 
-                  {/* <ScrollToTop /> */}
-                  <Route path="/country/:name" children={<CountryDetail />} />
+                  <Route
+                    path="/country/:name"
+                    children={<CountryDetail activeTheme={activeTheme} />}
+                  />
                 </Switch>
               </Main>
             </AppContainer>

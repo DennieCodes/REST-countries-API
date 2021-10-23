@@ -4,7 +4,6 @@ import CountryDetailBorderSection from "./CountryDetailBorderSection";
 // Component Styling
 const CountryDetailsInfo = styled.div`
   margin: 3rem 0;
-  font-family: ${(props) => props.theme.fonts.main};
   display: flex;
   flex-direction: column;
 

@@ -3,12 +3,14 @@ import { CountryFilterContext } from "../../contexts/CountryFilterContext";
 
 import styled from "styled-components";
 import searchIcon from "../../images/search-icon.svg";
+import searchIconDark from "../../images/search-icon-dark.png";
 
 // Component Styling
 const SearchContainer = styled.div`
   position: relative;
   flex-grow: 1;
   max-width: 30rem;
+  border-radius: 5px;
 `;
 
 const SearchIcon = styled.img`
@@ -25,11 +27,21 @@ const SearchInput = styled.input`
   padding-left: 4.68rem;
   border: 0;
   border-radius: 5px;
-  box-shadow: 1px 0 4px 0 ${(props) => props.theme.colors.dropShadow};
+  background-color: ${({ theme }) => theme.elementsBG};
+  color: ${({ theme }) => theme.inputTextColor};
+  box-shadow: 1px 0 4px 0 ${({ theme }) => theme.dropShadowColor};
+
+  &::placeholder {
+    color: ${({ theme }) => theme.inputTextColor};
+  }
 `;
 
-const SearchInputControl = () => {
+const SearchInputControl = (props) => {
   const { countryFilter, setCountryFilter } = useContext(CountryFilterContext);
+  const activeTheme = props.activeTheme;
+
+  const activeSearchIcon =
+    activeTheme === "light" ? searchIcon : searchIconDark;
 
   const handleInputControlChange = (event) => {
     setCountryFilter({
@@ -40,12 +52,12 @@ const SearchInputControl = () => {
 
   return (
     <SearchContainer>
-      <SearchIcon src={searchIcon} alt="Search icon" />
+      <SearchIcon src={activeSearchIcon} alt="Search icon" />
       <SearchInput
         type="text"
         name="search"
         id="search"
-        placeholder="Search for a country"
+        placeholder="Search for a country..."
         value={countryFilter.searchTerm}
         onChange={handleInputControlChange}
       />
