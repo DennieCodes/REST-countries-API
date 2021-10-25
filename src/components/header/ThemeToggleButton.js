@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import crescent from "../../images/crescent-moon-svgrepo-com.svg";
-import crescentDark from "../../images/dark-mode-crescent.png";
+import crescent from "../../../public/images/crescent-moon-svgrepo-com.svg";
+// import crescent from "../../images/crescent-moon-svgrepo-com.svg";
+// import crescentDark from "../../images/dark-mode-crescent.png";
+import crescentDark from "../../../public/images/dark-mode-crescent.png";
 
 const ThemeToggle = styled.button`
   color: ${({ theme }) => theme.textColor};
