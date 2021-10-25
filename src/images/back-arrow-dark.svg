@@ -1,0 +1,10 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" width="52" height="52">
+	<title>back-arrow-dark</title>
+	<defs>
+		<image  width="34" height="30" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAeBAMAAAC70dEnAAAAAXNSR0IB2cksfwAAAC1QTFRFAAAA////////////////////////////////////////////////////////oUirmwAAAA90Uk5TACCPYN//UKCfv7Cv75CAKeByQAAAAE1JREFUeJxjYAADRmUGNCASmoAqwOgaaoCuJBxDScFgVhLagQwUGaaGooIohq1oIpFAXTEoui6CTG5gQDc6Ak1kkCpKwFBkgK7oHpwJALsEMqeWXiMLAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<use  href="#img1" x="9" y="11" />
+</svg>

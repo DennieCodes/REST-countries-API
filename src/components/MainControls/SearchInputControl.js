@@ -2,10 +2,8 @@ import { useContext } from "react";
 import { CountryFilterContext } from "../../contexts/CountryFilterContext";
 
 import styled from "styled-components";
-// import searchIcon from "../../images/search-icon.svg";
-import searchIcon from "../../../public/images/search-icon.svg";
-// import searchIconDark from "../../images/search-icon-dark.png";
-import searchIconDark from "../../../public/images/search-icon-dark.png";
+import searchIcon from "../../images/search-icon.svg";
+import searchIconDark from "../../images/search-icon-dark.svg";
 
 // Component Styling
 const SearchContainer = styled.div`

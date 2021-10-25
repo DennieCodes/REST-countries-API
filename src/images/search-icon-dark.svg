@@ -1,0 +1,10 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="44" height="44">
+	<title>search-icon-dark</title>
+	<defs>
+		<image  width="36" height="36" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAAXNSR0IB2cksfwAAAD9QTFRFAAAA////////////////////////////////////////////////////////////////////////////////Q7v6agAAABV0Uk5TABBgj7/fz4BAIJ/v/39QoHAwkK9fpRT0hQAAAQVJREFUeJzNk9EWgiAMhpk5hzKJsPd/1galTVin013/Fcjn9rMN53bBcBkRp5G8+6R5CbwLB5tZX8cYPmLzJAeBPJSs8VqwtWOwIPDeXw1K4uB8+pKESq2fhnFuEOqmk8m+ZWqsUW0XZurv4kbmd8FAkhmM8zpUZF4syCGH48JZh9XSB5LbZMoFjyqgbamaoh+h8B3amMGEpJxxX2e1PmlTjZGom8VA0GaD1bpaAVVkMkOVGVP/Araz83J06pa44nvDLN2MUTutIL3q2l4oPLoJ6/PJtFNO9R1dovcx1QeI2aDKZZQy9B6K4rYTIc+m06cXn4hoOHphU63+meo7a1DTV8jRlB7liw5rnnRnyQAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<use id="Background" href="#img1" x="4" y="4" />
+</svg>

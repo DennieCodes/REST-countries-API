@@ -1,0 +1,10 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="44" height="44">
+	<title>dark-mode-crescent</title>
+	<defs>
+		<image  width="32" height="34" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAiCAMAAAAJbCvNAAAAAXNSR0IB2cksfwAAAD9QTFRFAAAA////////////////////////////////////////////////////////////////////////////////Q7v6agAAABV0Uk5TACBgcIAwQI/v/7/fbxDPUK9/sJ+gr1sN/AAAAM1JREFUeJyFlO0CRCAQRY3yMbWRzfs/67LCVDfu33P0cQ1NI0Ot0l1TSz+MzGxquDO8x1KFf/hIi7EzkVc2cFPkPGPBn3zEfDk5fyGni7OGQrgFeAexABbCm2CFoF524ACEWQqoByUF7ktBJwJ4F6kAlki34Mk9HnLL8HjNPUtu2Nzw2dTpXGCbNt4VwqaoOPy0l2+AsZVqTDD2Xz6N0DhCoAqZOGK+xn085z32ae5aHVzDy9rLNvLxojXFpvyKab1at7W/BPVK63aWD/8A1sITBHX0jtQAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<use id="Background" href="#img1" x="5" y="5" />
+</svg>

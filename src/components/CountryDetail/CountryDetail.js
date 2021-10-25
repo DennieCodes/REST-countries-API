@@ -2,10 +2,10 @@ import { useParams, useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import ScrollToTop from "../../utils/ScrollToTop";
-// import backArrow from "../../images/back-arrow.png";
-import backArrow from "../../../public/images/back-arrow.png";
-// import backArrowDark from "../../images/back-arrow-dark.png";
-import backArrowDark from "../../../public/images/back-arrow-dark.png";
+import backArrow from "../../images/back-arrow.svg";
+// import backArrow from "../../../public/images/back-arrow.png";
+import backArrowDark from "../../images/back-arrow-dark.svg";
+// import backArrowDark from "../../../public/images/back-arrow-dark.png";
 
 import CountryDetailCard from "./CountryDetailCard";
 
