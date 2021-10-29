@@ -51,7 +51,7 @@ const CountryLink = styled(Link)`
 // CountryDetailBorderSection Component
 const CountryDetailBorderSection = (props) => {
   const borders = props.borders;
-  const { countryData } = useContext(CountryDataContext);
+  const countryData = useContext(CountryDataContext);
 
   // Iterate through any country code items in borders array, find corresponding entry in countryData
   // Retrieve the name of the country and build array of countrylinks

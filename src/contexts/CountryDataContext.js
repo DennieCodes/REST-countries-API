@@ -7,6 +7,8 @@ export const CountryDataContext = createContext();
 export function CountryDataProvider(props) {
   const [countryData, setCountryData] = useState("");
 
+  // console.log("Current theme is: ", theme.dropShadowColor);
+
   // Call API upon mounting and retrieve entire country list but filter only the data that we want
   useEffect(() => {
     async function fetchData() {
@@ -27,7 +29,7 @@ export function CountryDataProvider(props) {
   }, []);
 
   return (
-    <CountryDataContext.Provider value={{ countryData, setCountryData }}>
+    <CountryDataContext.Provider value={countryData}>
       {props.children}
     </CountryDataContext.Provider>
   );

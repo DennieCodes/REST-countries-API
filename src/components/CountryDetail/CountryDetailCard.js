@@ -40,7 +40,7 @@ const Flag = styled.img`
 const CountryDetailCard = (props) => {
   const { countryName } = props;
   // Retrieve country data from CountryDataContext
-  const { countryData } = useContext(CountryDataContext);
+  const countryData = useContext(CountryDataContext);
 
   // Check if countryData object from Context is valid and redirect if invalid
   if (!Array.isArray(countryData)) {
