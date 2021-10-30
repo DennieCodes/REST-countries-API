@@ -21,60 +21,49 @@ const CardContainer = styled.div`
 
 const CountryDirectory = () => {
   // Retrieve country data from CountryDataContext
-  const countryData = useContext(CountryDataContext);
+  // const countryData = useContext(CountryDataContext);
+  let parsedCountryData = useContext(CountryDataContext);
 
   // Retrieve search input value for filtering API data
   const { countryFilter } = useContext(CountryFilterContext);
   const { searchTerm, region } = countryFilter;
+
   // Iterate over the collection of objects in countryData
   // Filter if there are any filter flags present
 
+  // Check presence of region selection and filter parsedCountryData
+  if (region.length > 0) {
+    parsedCountryData = parsedCountryData.filter((data) => {
+      return data.region.toLowerCase().includes(region.toLowerCase());
+    });
+  }
+
+  // Check presence of search input data and if present filter parsedCountryData further
+  if (searchTerm.length > 0) {
+    parsedCountryData = parsedCountryData.filter((data) => {
+      return data.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+  }
+
   const CountryCards =
-    countryData === ""
+    parsedCountryData === ""
       ? ""
-      : Object.entries(countryData)
-          .filter((data) => {
-            if (region.length > 0) {
-              const regionName = data[1].region.toLowerCase();
+      : parsedCountryData.map((data, index) => {
+          const { name, flags, population, region, capital } = data;
 
-              if (regionName.includes(region.toLowerCase())) {
-                // This will return a filtered data set with countries with corresponding region
-                return data;
-              }
-            } else {
-              // This will return an unfiltered data set
-              return data;
-            }
-          })
-          .filter((data) => {
-            if (searchTerm.length > 0) {
-              const countryName = data[1].name.toLowerCase();
-
-              if (countryName.includes(searchTerm.toLowerCase())) {
-                // This will return a filtered data set with countries that have the search term in it's name
-                return data;
-              }
-            } else {
-              // This will return an unfiltered data set
-              return data;
-            }
-          })
-          .map((data, index) => {
-            const { name, flags, population, region, capital } = data[1];
-
-            return (
-              <Card
-                key={index}
-                name={name}
-                flag={flags.svg}
-                population={population.toLocaleString("en", {
-                  useGrouping: true,
-                })}
-                region={region}
-                capital={capital}
-              />
-            );
-          });
+          return (
+            <Card
+              key={index}
+              name={name}
+              flag={flags.svg}
+              population={population.toLocaleString("en", {
+                useGrouping: true,
+              })}
+              region={region}
+              capital={capital}
+            />
+          );
+        });
 
   return <CardContainer>{CountryCards}</CardContainer>;
 };
