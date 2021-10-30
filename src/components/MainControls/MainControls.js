@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import SearchInputControl from "./SearchInputControl";
-import SelectInput from "../SelectInput/SelectInput";
+import SearchInputControl from "./SearchInputControl.js";
+import SelectInput from "../SelectInput/SelectInput.js";
 
 // Components Styling
 

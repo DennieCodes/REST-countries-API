@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import styled from "styled-components";
 
-import CountryDetailStats from "./CountryDetailStats";
-import { CountryDataContext } from "../../contexts/CountryDataContext";
+import CountryDetailStats from "./CountryDetailStats.js";
+import { CountryDataContext } from "../../contexts/CountryDataContext.js";
 
 const CountryDetails = styled.div`
   display: flex;

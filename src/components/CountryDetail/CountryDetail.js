@@ -1,11 +1,11 @@
 import { useParams, useHistory } from "react-router-dom";
 import styled from "styled-components";
 
-import ScrollToTop from "../../utils/ScrollToTop";
+import ScrollToTop from "../../utils/ScrollToTop.js";
 import backArrow from "../../images/back-arrow.svg";
 import backArrowDark from "../../images/back-arrow-dark.svg";
 
-import CountryDetailCard from "./CountryDetailCard";
+import CountryDetailCard from "./CountryDetailCard.js";
 
 const DetailContainer = styled.div`
 

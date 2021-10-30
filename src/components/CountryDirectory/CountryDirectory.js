@@ -2,8 +2,8 @@ import { useContext } from "react";
 import styled from "styled-components";
 import Card from "../Card/Card";
 
-import { CountryDataContext } from "../../contexts/CountryDataContext";
-import { CountryFilterContext } from "../../contexts/CountryFilterContext";
+import { CountryDataContext } from "../../contexts/CountryDataContext.js";
+import { CountryFilterContext } from "../../contexts/CountryFilterContext.js";
 
 // Component Styling
 const CardContainer = styled.div`

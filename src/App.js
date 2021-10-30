@@ -6,13 +6,13 @@ import { GlobalStyles } from "./components/GlobalStyles/GlobalStyles";
 import styled, { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./themes/theme";
 
-import Header from "./components/Header/Header";
-import MainControls from "./components/MainControls/MainControls";
-import CountryDirectory from "./components/CountryDirectory/CountryDirectory";
-import CountryDetail from "./components/CountryDetail/CountryDetail";
+import Header from "./components/Header/Header.js";
+import MainControls from "./components/MainControls/MainControls.js";
+import CountryDirectory from "./components/CountryDirectory/CountryDirectory.js";
+import CountryDetail from "./components/CountryDetail/CountryDetail.js";
 
-import { CountryDataProvider } from "./contexts/CountryDataContext";
-import { CountryFilterProvider } from "./contexts/CountryFilterContext";
+import { CountryDataProvider } from "./contexts/CountryDataContext.js";
+import { CountryFilterProvider } from "./contexts/CountryFilterContext.js";
 
 // Components Styling
 const AppContainer = styled.div``;

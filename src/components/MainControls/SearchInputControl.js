@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CountryFilterContext } from "../../contexts/CountryFilterContext";
+import { CountryFilterContext } from "../../contexts/CountryFilterContext.js";
 
 import styled from "styled-components";
 import searchIcon from "../../images/search-icon.svg";

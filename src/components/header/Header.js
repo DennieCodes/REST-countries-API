@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ThemeToggleButton from "./ThemeToggleButton";
+import ThemeToggleButton from "./ThemeToggleButton.js";
 
 // COMPONENTS STYLING
 const HeaderContainer = styled.header`

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CountryDetailBorderSection from "./CountryDetailBorderSection";
+import CountryDetailBorderSection from "./CountryDetailBorderSection.js";
 
 // Component Styling
 const CountryDetailsInfo = styled.div`

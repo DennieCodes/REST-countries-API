@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import styled from "styled-components";
-import { CountryFilterContext } from "../../contexts/CountryFilterContext";
+import { CountryFilterContext } from "../../contexts/CountryFilterContext.js";
 
 const SelectInputContainer = styled.div`
   background-color: ${({ theme }) => theme.elementsBG};
