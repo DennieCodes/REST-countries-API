@@ -30,4 +30,4 @@ export const darkTheme = {
   dropShadowColor: "rgba(0, 0, 0, 0)",
 };
 
-export default theme;
+// export default theme;
