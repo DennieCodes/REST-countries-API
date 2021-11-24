@@ -1,9 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
 import Card from "../Card/Card";
 
 import { CountryDataContext } from "../../contexts/CountryDataContext.js";
 import { CountryFilterContext } from "../../contexts/CountryFilterContext.js";
+
+import { useAxios } from "../../hooks/useAxios";
 
 // Component Styling
 const CardContainer = styled.div`
@@ -20,35 +22,29 @@ const CardContainer = styled.div`
 `;
 
 const CountryDirectory = () => {
-  // Retrieve country data from CountryDataContext
-  // const countryData = useContext(CountryDataContext);
-  let parsedCountryData = useContext(CountryDataContext);
+  // https://restcountries.com/v2/region/africa
+  // https://restcountries.com/v2/name/aruba
 
-  // Retrieve search input value for filtering API data
-  const { countryFilter } = useContext(CountryFilterContext);
-  const { searchTerm, region } = countryFilter;
+  // Retrieve search input value and region for filtering API data (if exists)
+  const {
+    countryFilter: { searchTerm, region },
+  } = useContext(CountryFilterContext);
 
-  // Iterate over the collection of objects in countryData
-  // Filter if there are any filter flags present
+  const apiParams = { url: "/all" };
 
-  // Check presence of region selection and filter parsedCountryData
-  if (region.length > 0) {
-    parsedCountryData = parsedCountryData.filter((data) => {
-      return data.region.toLowerCase().includes(region.toLowerCase());
-    });
-  }
+  // Change the URL if either searchTerm or Region are present
 
-  // Check presence of search input data and if present filter parsedCountryData further
-  if (searchTerm.length > 0) {
-    parsedCountryData = parsedCountryData.filter((data) => {
-      return data.name.toLowerCase().includes(searchTerm.toLowerCase());
-    });
-  }
+  // Make sure only region or search is active
+
+  if (searchTerm) apiParams.searchTerm = searchTerm;
+
+  if (region) apiParams.url = `/region/${region}`;
+
+  const { response: countryData, loading, error } = useAxios(apiParams);
 
   const CountryCards =
-    parsedCountryData === ""
-      ? ""
-      : parsedCountryData.map((data, index) => {
+    !loading && error === "" && countryData
+      ? countryData.map((data, index) => {
           const { name, flags, population, region, capital } = data;
 
           return (
@@ -63,7 +59,8 @@ const CountryDirectory = () => {
               capital={capital}
             />
           );
-        });
+        })
+      : "";
 
   return <CardContainer>{CountryCards}</CardContainer>;
 };

@@ -60,7 +60,7 @@ const SelectInput = () => {
     });
   };
 
-  const selectItemsArray = ["Africa", "America", "Asia", "Europe", "Oceania"];
+  const selectItemsArray = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
   const selectItems = selectItemsArray.map((item, index) => {
     return (
       <SelectDropDownItem
