@@ -45,7 +45,7 @@ const SearchInputControl = (props) => {
 
   const handleInputControlChange = (event) => {
     setCountryFilter({
-      region: countryFilter.region,
+      region: "",
       searchTerm: event.target.value,
     });
   };

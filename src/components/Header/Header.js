@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ThemeToggleButton from "./ThemeToggleButton.js";
 
@@ -24,6 +25,10 @@ const Title = styled.h1`
   }
 `;
 
+const HomeLink = styled(Link)`
+  color: ${({ theme }) => theme.textColor};
+`;
+
 // HEADER Component
 const Header = (props) => {
   const themeToggler = props.themeToggler;
@@ -31,7 +36,9 @@ const Header = (props) => {
 
   return (
     <HeaderContainer>
-      <Title>Where in the world?</Title>
+      <HomeLink to="/">
+        <Title>Where in the world?</Title>
+      </HomeLink>
 
       <ThemeToggleButton
         themeToggler={themeToggler}

@@ -1,8 +1,5 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-
-import { CountryDataContext } from "../../contexts/CountryDataContext.js";
+import CountryLink from "./CountryLink";
 
 const CountryBorders = styled.div`
   display: flex;
@@ -29,52 +26,20 @@ const CountryBorderLabel = styled.h3`
   margin-bottom: 1.5rem;
 `;
 
-const CountryLink = styled(Link)`
-  font-size: 0.875rem;
-  line-height: 0.875rem;
-
-  cursor: pointer;
-  box-shadow: 0 0 6px 2px ${({ theme }) => theme.dropShadowColor};
-  background-color: ${({ theme }) => theme.elementsBG};
-  color: ${({ theme }) => theme.textColor};
-
-  padding: 0.625rem 2.5%;
-  text-align: center;
-
-  min-width: 6rem;
-
-  @media (min-width: 600px) {
-    font-size: 1rem;
-  }
-`;
-
 // CountryDetailBorderSection Component
 const CountryDetailBorderSection = (props) => {
   const borders = props.borders;
-  const countryData = useContext(CountryDataContext);
 
-  // Iterate through any country code items in borders array, find corresponding entry in countryData
-  // Retrieve the name of the country and build array of countrylinks
-  const borderCountryLinks = borders.map((code) => {
-    const borderCountryEntry = countryData.filter((data) => {
-      return data.alpha3Code === code;
-    });
-
-    const countryName = borderCountryEntry[0].name;
-    const countryUrl = "/country/" + countryName;
-
-    return (
-      <CountryLink key={code} to={countryUrl}>
-        {countryName}
-      </CountryLink>
-    );
-  });
+  // Iterate through any country code items in borders array
+  const borderCountryLinks = borders.map((code) => (
+    <CountryLink key={code} countryCode={code} />
+  ));
 
   return (
     <CountryBorders>
       <CountryBorderLabel>Border Countries:</CountryBorderLabel>
       <CountryBorderLinks>
-        {borderCountryLinks.length > 0 ? borderCountryLinks : "None"}
+        {borderCountryLinks.length > 0 ? borderCountryLinks : ""}
       </CountryBorderLinks>
     </CountryBorders>
   );

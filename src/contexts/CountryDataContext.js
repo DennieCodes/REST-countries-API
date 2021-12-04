@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
-// import { useEffect } from "react/cjs/react.development";
 
 export const CountryDataContext = createContext();
 

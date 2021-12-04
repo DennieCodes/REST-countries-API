@@ -41,7 +41,7 @@ const SelectDropDownItem = styled.li`
 `;
 
 const SelectInput = () => {
-  const { countryFilter, setCountryFilter } = useContext(CountryFilterContext);
+  const { setCountryFilter } = useContext(CountryFilterContext);
 
   // Control open/close state of drop down select
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
@@ -56,11 +56,11 @@ const SelectInput = () => {
 
     setCountryFilter({
       region: value,
-      searchTerm: countryFilter.searchTerm,
+      searchTerm: "",
     });
   };
 
-  const selectItemsArray = ["Africa", "America", "Asia", "Europe", "Oceania"];
+  const selectItemsArray = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
   const selectItems = selectItemsArray.map((item, index) => {
     return (
       <SelectDropDownItem
