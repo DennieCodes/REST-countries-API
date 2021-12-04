@@ -41,7 +41,7 @@ const SelectDropDownItem = styled.li`
 `;
 
 const SelectInput = () => {
-  const { countryFilter, setCountryFilter } = useContext(CountryFilterContext);
+  const { setCountryFilter } = useContext(CountryFilterContext);
 
   // Control open/close state of drop down select
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);

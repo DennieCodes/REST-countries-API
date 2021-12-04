@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { Route, Redirect } from "react-router-dom";
 import styled from "styled-components";
 
+import { useAxios } from "../../hooks/useAxios";
+
 import CountryDetailStats from "./CountryDetailStats.js";
-import { CountryDataContext } from "../../contexts/CountryDataContext.js";
 
 const CountryDetails = styled.div`
   display: flex;
@@ -39,34 +38,31 @@ const Flag = styled.img`
 // CountryDetailCard Component
 const CountryDetailCard = (props) => {
   const { countryName } = props;
-  // Retrieve country data from CountryDataContext
-  const countryData = useContext(CountryDataContext);
 
-  // Check if countryData object from Context is valid and redirect if invalid
-  if (!Array.isArray(countryData)) {
-    return (
-      <Route
-        render={() => {
-          <Redirect to={{ pathname: "/" }} />;
-        }}
-      />
-    );
+  // Find correct URL to send to useAxios
+  const apiParams = { url: `/name/${countryName}` };
+  const { response: countryInfo, loading, error } = useAxios(apiParams);
+
+  let name = "",
+    flag = "";
+  let flagImageAlternateText = "";
+
+  if (!loading && error === "" && countryInfo) {
+    name = countryInfo[0].name;
+    flag = countryInfo[0].flags.svg;
+    flagImageAlternateText = `The flag of ${name}`;
   }
-
-  // Find the country corresponding to the one from params/props
-  const countryDetails = countryData.filter((data) => {
-    return data.name === countryName;
-  });
-
-  const { name, flags } = countryDetails[0];
-
-  const flagImageAlternateText = `The flag of ${name}`;
 
   return (
     <CountryDetails>
-      <Flag src={flags.svg} alt={flagImageAlternateText} />
-
-      <CountryDetailStats countryDetail={countryDetails[0]} />
+      {!loading && error === "" && countryInfo ? (
+        <>
+          <Flag src={flag} alt={flagImageAlternateText} />
+          <CountryDetailStats countryDetail={countryInfo[0]} />
+        </>
+      ) : (
+        ""
+      )}
     </CountryDetails>
   );
 };
