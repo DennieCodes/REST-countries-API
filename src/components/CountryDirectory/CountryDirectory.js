@@ -1,8 +1,7 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import Card from "../Card/Card";
 
-import { CountryDataContext } from "../../contexts/CountryDataContext.js";
 import { CountryFilterContext } from "../../contexts/CountryFilterContext.js";
 
 import { useAxios } from "../../hooks/useAxios";
@@ -22,23 +21,17 @@ const CardContainer = styled.div`
 `;
 
 const CountryDirectory = () => {
-  // https://restcountries.com/v2/region/africa
-  // https://restcountries.com/v2/name/aruba
-
   // Retrieve search input value and region for filtering API data (if exists)
   const {
     countryFilter: { searchTerm, region },
   } = useContext(CountryFilterContext);
 
-  const apiParams = { url: "/all" };
+  // Api URL parameters
+  let apiParams = { url: "" };
 
-  // Change the URL if either searchTerm or Region are present
-
-  // Make sure only region or search is active
-
-  if (searchTerm) apiParams.searchTerm = searchTerm;
-
-  if (region) apiParams.url = `/region/${region}`;
+  if (searchTerm) apiParams.url = `/name/${searchTerm}`;
+  else if (region) apiParams.url = `/region/${region}`;
+  else apiParams.url = "/all";
 
   const { response: countryData, loading, error } = useAxios(apiParams);
 

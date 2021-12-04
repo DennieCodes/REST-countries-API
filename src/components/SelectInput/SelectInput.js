@@ -56,7 +56,7 @@ const SelectInput = () => {
 
     setCountryFilter({
       region: value,
-      searchTerm: countryFilter.searchTerm,
+      searchTerm: "",
     });
   };
 

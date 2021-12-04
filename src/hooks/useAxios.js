@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 axios.defaults.baseURL = "https://restcountries.com/v2";
@@ -13,8 +13,6 @@ export const useAxios = (axiosParams) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const currentApi = useRef(null);
-
   const fetchData = async (params) => {
     try {
       const result = await axios.request(params);
@@ -25,9 +23,6 @@ export const useAxios = (axiosParams) => {
       setLoading(false);
     }
   };
-
-  // const url = useRef(params.api);
-  // url.current can be changed and then call
 
   useEffect(() => {
     fetchData(axiosParams);
