@@ -43,6 +43,8 @@ const Card = (props) => {
   // const routerLinkUrl = `/country/${name}`;
   const routerLinkUrl = `/country/${encodeURIComponent(name.trim())}`;
 
+  console.log("Router Link: ", routerLinkUrl);
+
   return (
     <CountryCard>
       <Link to={routerLinkUrl}>
