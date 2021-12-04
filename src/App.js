@@ -11,7 +11,7 @@ import MainControls from "./components/MainControls/MainControls.js";
 import CountryDirectory from "./components/CountryDirectory/CountryDirectory.js";
 import CountryDetail from "./components/CountryDetail/CountryDetail.js";
 
-import { CountryDataProvider } from "./contexts/CountryDataContext.js";
+// import { CountryDataProvider } from "./contexts/CountryDataContext.js";
 import { CountryFilterProvider } from "./contexts/CountryFilterContext.js";
 
 // Components Styling
@@ -27,27 +27,27 @@ const App = () => {
     <Router>
       <ThemeProvider theme={selectedTheme}>
         <GlobalStyles />
-        <CountryDataProvider>
-          <CountryFilterProvider>
-            <AppContainer>
-              <Header themeToggler={themeToggler} activeTheme={activeTheme} />
+        {/* <CountryDataProvider> */}
+        <CountryFilterProvider>
+          <AppContainer>
+            <Header themeToggler={themeToggler} activeTheme={activeTheme} />
 
-              <Main>
-                <Switch>
-                  <Route exact path="/">
-                    <MainControls activeTheme={activeTheme} />
-                    <CountryDirectory />
-                  </Route>
+            <Main>
+              <Switch>
+                <Route exact path="/">
+                  <MainControls activeTheme={activeTheme} />
+                  <CountryDirectory />
+                </Route>
 
-                  <Route
-                    path="/country/:name"
-                    children={<CountryDetail activeTheme={activeTheme} />}
-                  />
-                </Switch>
-              </Main>
-            </AppContainer>
-          </CountryFilterProvider>
-        </CountryDataProvider>
+                <Route
+                  path="/country/:name"
+                  children={<CountryDetail activeTheme={activeTheme} />}
+                />
+              </Switch>
+            </Main>
+          </AppContainer>
+        </CountryFilterProvider>
+        {/* </CountryDataProvider> */}
       </ThemeProvider>
     </Router>
   );
