@@ -37,8 +37,8 @@ const CountryDetail = (props) => {
 
   const activeBackIcon = activeTheme === "light" ? backArrow : backArrowDark;
 
-  // Extract country Name parameter
-  let { name } = useParams();
+  // Extract country code parameter
+  let { code } = useParams();
 
   // useHistory hook and Back button click handler function
   const history = useHistory();
@@ -54,7 +54,7 @@ const CountryDetail = (props) => {
         Back
       </HomeReturnButton>
 
-      <CountryDetailCard countryName={name} />
+      <CountryDetailCard countryCode={code} />
     </DetailContainer>
   );
 };

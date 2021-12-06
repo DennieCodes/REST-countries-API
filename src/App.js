@@ -40,7 +40,7 @@ const App = () => {
                 </Route>
 
                 <Route
-                  path="/country/:name"
+                  path="/country/:code"
                   children={<CountryDetail activeTheme={activeTheme} />}
                 />
               </Switch>

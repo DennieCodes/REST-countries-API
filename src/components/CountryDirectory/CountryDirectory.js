@@ -38,11 +38,12 @@ const CountryDirectory = () => {
   const CountryCards =
     !loading && error === "" && countryData
       ? countryData.map((data, index) => {
-          const { name, flags, population, region, capital } = data;
+          const { name, flags, population, region, capital, alpha3Code } = data;
 
           return (
             <Card
               key={index}
+              code={alpha3Code}
               name={name}
               flag={flags.svg}
               population={population.toLocaleString("en", {

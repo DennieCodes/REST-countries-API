@@ -37,10 +37,10 @@ const Flag = styled.img`
 
 // CountryDetailCard Component
 const CountryDetailCard = (props) => {
-  const { countryName } = props;
+  const { countryCode } = props;
 
   // Find correct URL to send to useAxios
-  const apiParams = { url: `/name/${countryName}` };
+  const apiParams = { url: `/alpha/${countryCode}` };
   const { response: countryInfo, loading, error } = useAxios(apiParams);
 
   let name = "",
@@ -48,8 +48,8 @@ const CountryDetailCard = (props) => {
   let flagImageAlternateText = "";
 
   if (!loading && error === "" && countryInfo) {
-    name = countryInfo[0].name;
-    flag = countryInfo[0].flags.svg;
+    name = countryInfo.name;
+    flag = countryInfo.flags.svg;
     flagImageAlternateText = `The flag of ${name}`;
   }
 
@@ -58,7 +58,7 @@ const CountryDetailCard = (props) => {
       {!loading && error === "" && countryInfo ? (
         <>
           <Flag src={flag} alt={flagImageAlternateText} />
-          <CountryDetailStats countryDetail={countryInfo[0]} />
+          <CountryDetailStats countryDetail={countryInfo} />
         </>
       ) : (
         ""

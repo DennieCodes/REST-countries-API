@@ -36,14 +36,10 @@ const CountryStat = styled.p`
 `;
 
 const Card = (props) => {
-  const { name, flag, population, region, capital } = props;
+  const { name, flag, population, region, capital, code } = props;
   const flagInfo = `Flag of ${name}`;
 
-  // encodeURIComponent(name.trim())
-  // const routerLinkUrl = `/country/${name}`;
-  const routerLinkUrl = `/country/${encodeURIComponent(name.trim())}`;
-
-  console.log("Router Link: ", routerLinkUrl);
+  const routerLinkUrl = `/country/${code}`;
 
   return (
     <CountryCard>

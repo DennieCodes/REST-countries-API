@@ -24,6 +24,7 @@ const BorderCountryLink = styled(Link)`
 
 const CountryLink = (props) => {
   const { countryCode } = props;
+
   const apiParams = { url: `/alpha/${countryCode}` };
 
   const { response: countryInfo, loading, error } = useAxios(apiParams);
@@ -32,8 +33,9 @@ const CountryLink = (props) => {
   let countryUrl = "";
 
   if (!loading && error === "" && countryInfo) {
+    const { alpha3Code } = countryInfo;
     countryName = countryInfo.name;
-    countryUrl = `/country/${countryName}`;
+    countryUrl = `/country/${alpha3Code}`;
   }
 
   return <BorderCountryLink to={countryUrl}>{countryName}</BorderCountryLink>;
