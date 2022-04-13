@@ -78,6 +78,6 @@ I tried to avoid calling the API repeatedly during development.
 
 ## Author
 
-- Website - [Oculareo](https://github.com/DennieCodes)
-- Frontend Mentor - [@Oculareo](https://www.frontendmentor.io/profile/Oculareo)
-- Twitter - [@DennieDev](https://twitter.com/DennieCodes)
+- Website - [DennieCodes](https://github.com/DennieCodes)
+- Frontend Mentor - [@DennieCodes](https://www.frontendmentor.io/profile/DennieCodes)
+- Twitter - [@DennieCodes](https://twitter.com/DennieCodes)
